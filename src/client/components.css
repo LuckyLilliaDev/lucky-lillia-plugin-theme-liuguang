@@ -1,0 +1,13 @@
+.lg-inline { display: grid; gap: 4px; margin-top: 4px; }
+.lg-option { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 12px 0; border-bottom: 1px solid var(--hairline); }
+.lg-option-title { margin: 0 0 5px; font-size: 13px; font-weight: 500; color: var(--text-primary); }
+.lg-option-copy { margin: 0; font-size: 12px; line-height: 1.7; color: var(--text-muted); }
+.lg-switch { position: relative; flex: 0 0 42px; width: 42px; height: 25px; padding: 3px; border: 1px solid var(--hairline); border-radius: 99px; background: var(--fill-input); cursor: pointer; }
+.lg-switch::after { content: ''; display: block; width: 17px; height: 17px; border-radius: 50%; background: var(--text-muted); transform: translateX(0); transition: transform .22s, background .22s; }
+.lg-switch[aria-checked=true] { background: linear-gradient(110deg, #477c94, #6978aa); border-color: transparent; }
+.lg-switch[aria-checked=true]::after { background: #fff; transform: translateX(16px); }
+.lg-reset { justify-self: start; margin: 6px 0 0; padding: 5px 0; border: 0; background: transparent; color: var(--text-muted); font-size: 12px; cursor: pointer; }
+.lg-reset:hover { color: var(--accent); }
+@media (prefers-reduced-motion: reduce) {
+  .lg-switch::after { transition: none; }
+}

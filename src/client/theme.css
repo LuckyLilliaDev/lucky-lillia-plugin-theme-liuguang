@@ -1,0 +1,71 @@
+:scope { background-color: var(--ll-lg-page-base); color-scheme: dark; }
+body { background: var(--ll-lg-page-base); }
+[data-theme-background] { overflow: hidden; contain: strict; }
+.lg-wallpaper { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.lg-optics {
+  position: absolute; inset: 0; width: 100%; height: 100%; border-radius: inherit; z-index: -1; pointer-events: none;
+  mask-image:
+    linear-gradient(to bottom, #000, transparent 10px, transparent calc(100% - 10px), #000),
+    linear-gradient(to right, #000, transparent 10px, transparent calc(100% - 10px), #000);
+}
+
+/* Optical walls; the canvas samples the moving wallpaper at the edges. */
+:is(.card, .glass-regular) {
+  backdrop-filter: blur(var(--glass-blur-regular)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blur-regular)) saturate(var(--glass-saturate));
+  box-shadow:
+    inset 0 2px 2px -1px var(--spec-top),
+    inset 2px 0 4px -2px var(--spec-side),
+    inset -2px -3px 5px -3px var(--spec-bottom),
+    inset 0 9px 14px -12px var(--lens-top),
+    inset 0 -12px 18px -14px var(--lens-bottom),
+    0 0 0 .5px var(--edge-shade),
+    0 8px 14px -10px rgb(var(--shade) / .25),
+    0 22px 50px -18px rgb(var(--shade) / .28);
+}
+:is(.card, .glass-regular)::before {
+  padding: 1.4px;
+  background:
+    radial-gradient(350px circle at var(--ll-lg-pointer-x, -1000px) var(--ll-lg-pointer-y, -1000px), rgba(223, 255, 255, .85), transparent 70%),
+    linear-gradient(135deg, var(--spec-top), var(--spec-side) 23%, transparent 48%, var(--spec-bottom) 80%, var(--spec-side));
+}
+.lg-refracted:not(.glass-dim)::after {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: -1;
+  background:
+    radial-gradient(500px circle at var(--ll-lg-pointer-x, -1000px) var(--ll-lg-pointer-y, -1000px), rgba(218, 250, 255, .09), transparent 65%),
+    linear-gradient(125deg, rgba(222, 250, 255, .055), transparent 35%, rgba(165, 183, 255, .025) 70%, rgba(219, 250, 255, .04));
+}
+.lg-tilting {
+  transform: perspective(1100px) var(--ll-lg-base-transform, matrix(1,0,0,1,0,0)) rotateX(var(--ll-lg-tilt-x, 0deg)) rotateY(var(--ll-lg-tilt-y, 0deg)) translateY(var(--ll-lg-lift, 0px));
+  transform-origin: center;
+  transition: transform 180ms cubic-bezier(.2,.7,.25,1), box-shadow 180ms ease;
+  will-change: transform;
+}
+.lg-card-reflection {
+  -webkit-box-reflect: below 10px linear-gradient(to bottom, transparent calc(100% - var(--ll-lg-mirror-height, 80px)), rgb(0 0 0 / var(--ll-lg-mirror-alpha, .36)));
+}
+main h1, main h2, main h3 { letter-spacing: .01em; }
+.btn-primary, .gradient-primary {
+  background-image: linear-gradient(115deg, var(--accent-from), var(--accent-to));
+  color: #fff; box-shadow: inset 0 1px rgba(255,255,255,.2), 0 5px 18px -8px var(--accent-ring);
+}
+.btn-primary, .btn-glass { border-radius: var(--r-control); }
+:focus-visible { outline-color: var(--accent); }
+::selection { background: var(--accent-soft); color: var(--text-primary); }
+@media (max-width: 640px) {
+  :scope { --glass-blur-regular: 10px; --glass-blur-thick: 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  :is(.card, .glass-regular) { transition: background-color .15s; }
+  .lg-tilting { transform: var(--ll-lg-base-transform, none); transition: none; }
+}
+@media (prefers-reduced-transparency: reduce) {
+  :scope { --ll-lg-solid: .98; }
+}
+@media (forced-colors: active) {
+  .lg-wallpaper, .lg-optics { display: none; }
+  .lg-card-reflection { -webkit-box-reflect: none; }
+}
+@supports not (backdrop-filter: blur(1px)) {
+  :scope { --ll-lg-solid: .94; }
+}

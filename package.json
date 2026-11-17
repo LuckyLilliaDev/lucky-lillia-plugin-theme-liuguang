@@ -1,0 +1,69 @@
+{
+  "name": "@luckylillia/plugin-theme-liuguang",
+  "version": "1.0.4",
+  "type": "module",
+  "description": "琉光：流动极光、轻透玻璃与水面倒影的 WebUI 主题",
+  "main": "./lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "assets",
+    "GUIDE.md",
+    "LICENSE"
+  ],
+  "author": {
+    "name": "LuckyLilliaDev",
+    "url": "https://github.com/LuckyLilliaDev"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.15"
+  },
+  "keywords": [
+    "luckylillia-plugin",
+    "theme",
+    "liuguang",
+    "glass",
+    "webui"
+  ],
+  "peerDependencies": {
+    "@luckylillia/plugin-sdk": "^1.0.1"
+  },
+  "devDependencies": {
+    "esbuild": "~0.28.0"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test",
+    "prepack": "npm test && npm run build"
+  },
+  "llbot": {
+    "title": "琉光主题",
+    "description": "流动极光、折射玻璃、鼠标悬停倾斜、水面与卡片倒影。亮暗模式统一使用深色外观。",
+    "category": "theme",
+    "icon": "assets/icon.svg",
+    "details": "GUIDE.md",
+    "screenshots": [
+      {
+        "src": "assets/preview-dark.png",
+        "caption": "暗色：流动光带、折射玻璃与水面倒影"
+      },
+      {
+        "src": "assets/preview-light.png",
+        "caption": "页面设置：主题选择与四个外观开关集中在同一处"
+      }
+    ],
+    "webui": "./lib/client/index.js",
+    "service": {
+      "required": [],
+      "implements": []
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  }
+}
