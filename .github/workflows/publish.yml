@@ -89,7 +89,8 @@ jobs:
   publish:
     name: Publish verified package
     needs: verify
-    if: github.event_name == 'push' && github.ref_type == 'tag'
+    # Tag pushes publish; a manual run started on a tag (gh workflow run --ref vX.Y.Z) can retry one.
+    if: github.ref_type == 'tag'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:

@@ -1,6 +1,6 @@
 {
   "name": "@luckylillia-dev/plugin-theme-liuguang",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "type": "module",
   "description": "琉光：流动极光、轻透玻璃与水面倒影的 WebUI 主题",
   "main": "./lib/index.js",
