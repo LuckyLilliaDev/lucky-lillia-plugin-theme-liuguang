@@ -1,5 +1,5 @@
 import { createElement as h, useSyncExternalStore } from 'react'
-import { useTheme } from '@luckylillia/plugin-sdk/webui'
+import { useTheme } from '@luckylillia-dev/plugin-sdk/webui'
 import componentCSS from './components.css'
 import themeCSS from './theme.css'
 import { createTheme, THEME_ID } from './theme.js'

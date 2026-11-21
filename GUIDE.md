@@ -40,4 +40,4 @@ npm pack
 
 运行需要已支持 `ctx.theme` / `ctx.style` 的 LuckyLillia WebUI。SDK 兼容范围声明不代表旧版 WebUI 已具备主题运行时；缺少能力时会给出明确提示。样式作用域需要现代浏览器的 CSS `@scope` 支持。
 
-包名为 `@luckylillia/plugin-theme-liuguang`，分类为 `theme`。后端入口仅用于插件生命周期，前端入口是 `lib/client/index.js`。前端只使用宿主提供的 React 和公开 WebUI SDK，不加载外部字体、脚本或背景图片。
+包名为 `@luckylillia-dev/plugin-theme-liuguang`，分类为 `theme`。后端入口仅用于插件生命周期，前端入口是 `lib/client/index.js`。前端只使用宿主提供的 React 和公开 WebUI SDK，不加载外部字体、脚本或背景图片。

@@ -14,7 +14,7 @@ await cp(path.join(root, 'src/index.js'), path.join(out, 'index.js'))
 const result = await build({
   absWorkingDir: root, entryPoints: ['src/client/index.js'], outfile: path.join(out, 'client/index.js'),
   bundle: true, format: 'esm', platform: 'browser', target: 'es2022', minify: true, metafile: true,
-  loader: { '.css': 'text' }, external: ['react', 'react-dom', '@luckylillia/plugin-sdk/webui'],
+  loader: { '.css': 'text' }, external: ['react', 'react-dom', '@luckylillia-dev/plugin-sdk/webui'],
 })
 const imports = Object.values(result.metafile.outputs).flatMap(output => output.imports)
 if (imports.some(item => !item.external)) throw new Error('The client must be a single self-contained ES module')

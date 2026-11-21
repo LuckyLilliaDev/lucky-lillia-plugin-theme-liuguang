@@ -1,5 +1,5 @@
 {
-  "name": "@luckylillia/plugin-theme-liuguang",
+  "name": "@luckylillia-dev/plugin-theme-liuguang",
   "version": "1.0.4",
   "type": "module",
   "description": "琉光：流动极光、轻透玻璃与水面倒影的 WebUI 主题",
@@ -19,6 +19,14 @@
     "url": "https://github.com/LuckyLilliaDev"
   },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LuckyLilliaDev/lucky-lillia-plugin-theme-liuguang.git"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
   "engines": {
     "node": ">=22.15"
   },
@@ -30,9 +38,10 @@
     "webui"
   ],
   "peerDependencies": {
-    "@luckylillia/plugin-sdk": "^1.0.1"
+    "@luckylillia-dev/plugin-sdk": "^1.0.1"
   },
   "devDependencies": {
+    "@luckylillia-dev/plugin-sdk": "npm:@luckylillia/plugin-sdk@^1.0.1",
     "esbuild": "~0.28.0"
   },
   "scripts": {
@@ -61,9 +70,5 @@
       "required": [],
       "implements": []
     }
-  },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
   }
 }
